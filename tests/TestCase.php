@@ -16,7 +16,16 @@ class TestCase extends OrchestraTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        // Any setup logic goes here
+
+        $this->setupDatabase();
+    }
+
+    protected function setupDatabase()
+    {
+        \Illuminate\Support\Facades\Schema::create('products', function ($table) {
+            $table->id();
+            $table->string('name');
+        });
     }
 
     /**
